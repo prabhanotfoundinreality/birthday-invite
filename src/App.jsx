@@ -1,50 +1,43 @@
-import { useEffect, useRef } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 
 export default function App() {
   const audioRef = useRef(null);
+  const [showOverlay, setShowOverlay] = useState(true);
 
-  // Try autoplay on load (muted)
-  useEffect(() => {
+  const startMusic = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
     audio.volume = 0.6;
-    audio.muted = true;
+    audio.loop = true;
+    audio.play();
 
-    audio.play().catch(() => {
-      // autoplay blocked – will enable on user interaction
-    });
-
-    const enableSound = () => {
-      audio.muted = false;
-      audio.play();
-      window.removeEventListener("click", enableSound);
-      window.removeEventListener("touchstart", enableSound);
-    };
-
-    window.addEventListener("click", enableSound);
-    window.addEventListener("touchstart", enableSound);
-
-    return () => {
-      window.removeEventListener("click", enableSound);
-      window.removeEventListener("touchstart", enableSound);
-    };
-  }, []);
+    setShowOverlay(false);
+  };
 
   return (
     <div className="page">
       {/* Background Music */}
-      <audio ref={audioRef} loop>
+      <audio ref={audioRef}>
         <source src="/happy-birthday.mp3" type="audio/mpeg" />
       </audio>
+
+      {/* Tap to enable music */}
+      {showOverlay && (
+        <div className="music-overlay" onClick={startMusic}>
+          <div className="music-box">
+             Tap 
+          </div>
+        </div>
+      )}
 
       <div className="card">
         <span className="bubble b1"></span>
         <span className="bubble b2"></span>
         <span className="bubble b3"></span>
 
-        <p className="invite"> You’re Invited </p>
+        <p className="invite"> You’re Invited  To</p>
 
         <div className="photo-ring">
           <img src="/baby.jpg" alt="Sharvesh" />
