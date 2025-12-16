@@ -26,9 +26,11 @@ export default function App() {
       {/* Tap to enable music */}
       {showOverlay && (
         <div className="music-overlay" onClick={startMusic}>
-          <div className="music-box">
-             Tap 
-          </div>
+          <div className="music-circle">
+  <span>🎵</span>
+  <p>Tap</p>
+</div>
+
         </div>
       )}
 
