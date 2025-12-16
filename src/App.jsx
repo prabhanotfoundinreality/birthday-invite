@@ -13,7 +13,7 @@ export default function App() {
 
         {/* Photo */}
         <div className="photo-ring">
-          <img src="public/baby.jpg" alt="Sharvesh" />
+          <img src="/baby.jpg" alt="Sharvesh" />
         </div>
 
         <h1 className="name">Sharvesh</h1>
