@@ -1,0 +1,231 @@
+/* Google Fonts used:
+   Pacifico – Name
+   DM Serif Display – Party title
+   Quicksand – Date, time, address
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #eaf9ff, #ffffff);
+  font-family: "Quicksand", sans-serif;
+}
+
+/* PAGE */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 30px 22px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+  animation: cardEnter 1.2s ease;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* INVITE TEXT */
+.invite {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #1b4f72;
+  margin-bottom: 14px;
+  animation: fadeDown 1.5s ease;
+}
+
+/* PHOTO */
+.photo-ring {
+  width: 190px;
+  height: 190px;
+  margin: 18px auto 22px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #b3e5fc, #81d4fa);
+  animation: pulse 3s infinite;
+}
+
+.photo-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* NAME */
+.name {
+  font-family: "Pacifico", cursive;
+  font-size: 40px;
+  color: #154360;
+  margin: 10px 0 6px;
+  animation: glow 2.5s infinite alternate;
+}
+
+/* PARTY TITLE */
+.party-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  color: #3a6ea5;
+  margin-bottom: 24px;
+}
+
+/* DETAILS */
+.details {
+  margin-top: 5px;
+}
+
+.info-text {
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a6fa5;
+  margin: 10px 0;
+  opacity: 0;
+  animation: fadeUp 1s forwards;
+}
+
+.address {
+  font-size: 15px;
+  font-weight: 500;
+  color: #5f7f9f;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 28px;
+  font-size: 14px;
+  color: #1b4f72;
+  animation: shimmer 3s infinite;
+}
+
+/* FLOATING BUBBLES */
+.bubble {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: rgba(179, 229, 252, 0.35);
+  border-radius: 50%;
+  animation: float 6s infinite ease-in-out;
+}
+
+.b1 {
+  top: 18%;
+  left: -30px;
+}
+
+.b2 {
+  top: 48%;
+  right: -35px;
+  animation-delay: 1s;
+}
+
+.b3 {
+  bottom: 15%;
+  left: 45%;
+  animation-delay: 2s;
+}
+
+/* ANIMATION DELAYS */
+.fade-delay-1 {
+  animation-delay: 0.6s;
+}
+.fade-delay-2 {
+  animation-delay: 1s;
+}
+.fade-delay-3 {
+  animation-delay: 1.4s;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-28px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(129, 212, 250, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(129, 212, 250, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(129, 212, 250, 0);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 6px #b3e5fc;
+  }
+  to {
+    text-shadow: 0 0 18px #81d4fa;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
